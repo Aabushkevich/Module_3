@@ -1,23 +1,23 @@
+def send_email(message,recipient,*, sender="university.help@gmail.com") :
 
-def send_email(message,recipient, sender="university.help@gmail.com") :
+    if not all(['@' in recipient,                  
+                '@' in sender,
+                recipient.endswith('.ru') or
+                recipient.endswith('.com') or
+                recipient.endswith('.net'),
+                sender.endswith('.ru') or
+                sender.endswith('.com') or
+                sender.endswith('.net')]) :
+        print("Невозможно отправить письмо с адреса" + sender + "на адрес" +  recipient)
 
-    a = ['@', '.com','.ru','.net']
+    elif recipient == sender :
+        print("Нельзя отправить письмо самому себе!")
 
-    for a in recipient, sender:
-        if a not in recipient  or a not in sender :  # Не получается настроить первое условие,из-за чего не срабатывают  условия 3 и 4. Думаю, что цикл неправильно считывает значения из списка...или список был не лучшим решением)))
-            print("Невозможно отправить письмо с адреса " + sender + " на адрес " +  recipient)
-            break
+    elif sender == "university.help@gmail.com"  :
+        print("Письмо успешно отправлено с адреса " + sender + " на адрес " + recipient)
 
-        if recipient == sender :
-            print("Нельзя отправить письмо самому себе!")
-            break
-
-        if sender  :
-            print("Письмо успешно отправлено с адреса " + sender + " на адрес " + recipient)
-            break
-
-        else :
-            print("НЕСТАНДАРТНЫЙ ОТПРАВИТЕЛЬ! Письмо  отправлено с адреса " + sender + " на адрес " + recipient)
+    else :
+        print("НЕСТАНДАРТНЫЙ ОТПРАВИТЕЛЬ! Письмо  отправлено с адреса " + sender + " на адрес " + recipient)
 
 
 send_email('Это сообщение для проверки связи','vasyok1337@gmail.com')
