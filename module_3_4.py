@@ -4,10 +4,7 @@ def single_root_words(root_word,*other_words):
 
     for i in other_words[:] :
 
-        root_word = root_word.lower()  # Перевел все значения в нижний регистр, чтобы избежать его влияния при сравнении строк.
-        i = i.lower()                  # В итоге значения во втором списке выводятся в нижнем регистре. Это критично?
-
-        if root_word in i or i in root_word:
+        if root_word.lower() in str(i.lower()) or str(i.lower()) in root_word.lower():
             same_words.append(i)
 
     print(same_words)
